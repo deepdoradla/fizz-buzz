@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -5,11 +6,21 @@ import java.util.Scanner;
  */
 public class Fizz {
     public static void main(String args[]){
+        int number = 0;
      //This program will print 100 fizz buzz numbers
         //Request for input
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the number of fizz numbers to be printed : ");
-        int number = scanner.nextInt();
+
+        try{
+            number = scanner.nextInt();
+            Integer.valueOf(number);
+        } catch (Exception e)
+        {
+            System.out.print("Oops exception here");
+            e.getMessage();
+        }
+
 
         for(int i=1; i<=number; i++)
         {
